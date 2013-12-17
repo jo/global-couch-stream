@@ -4,8 +4,8 @@
   "description": "Readable changes feed stream from all databases.",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js",
-    "jshint": "jshint -c .jshintrc index.js test/*.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jshint": "jshint -c .jshintrc index.js"
   },
   "repository": {
     "type": "git",
