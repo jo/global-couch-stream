@@ -1,0 +1,33 @@
+{
+  "name": "global-couch-stream",
+  "version": "0.0.1",
+  "description": "Readable changes feed stream from all databases.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.js",
+    "jshint": "jshint -c .jshintrc index.js test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jo/global-couch-stream.git"
+  },
+  "keywords": [
+    "couchdb",
+    "changes",
+    "db_updates"
+  ],
+  "author": "Johannes J. Schmidt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jo/global-couch-stream/issues"
+  },
+  "homepage": "https://github.com/jo/global-couch-stream",
+  "devDependencies": {
+    "jshint": "~2.3.0"
+  },
+  "dependencies": {
+    "event-stream": "~3.0.20",
+    "request": "~2.30.0",
+    "follow": "~0.10.3"
+  }
+}
