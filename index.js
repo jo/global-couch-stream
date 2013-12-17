@@ -3,9 +3,10 @@
  */
 
 var url = require('url');
-var request = require('request').defaults({ json: true });
+var util = require('util');
 var es = require('event-stream');
 var follow = require('follow');
+var request = require('request').defaults({ json: true });
 
 module.exports = function(options) {
   if (typeof options === 'string') {
@@ -13,6 +14,7 @@ module.exports = function(options) {
       url: options
     };
   }
+  options.follow = options.follow || {};
 
   return es.pipeline(
     request.get(url.resolve(options.url, '_all_dbs')),
@@ -22,7 +24,13 @@ module.exports = function(options) {
 
       // TODO: limit concurrent connections
       dbs.forEach(function write(db) {
-        follow(url.resolve(options.url, db), function(err, change) {
+        var opts = {
+          db: url.resolve(options.url, db)
+        };
+
+        util._extend(opts, options.follow);
+
+        follow(opts, function(err, change) {
           queue({
             db: db,
             change: change

@@ -1,6 +1,6 @@
 {
   "name": "global-couch-stream",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Readable changes feed stream from all databases.",
   "main": "index.js",
   "scripts": {

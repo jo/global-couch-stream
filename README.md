@@ -5,10 +5,19 @@ Readable changes feed stream from all databases.
 Usage
 -----
 ```js
-var feed = require('global-couch-stream')('http://localhost:5984');
-feed.on('data', function(data) {
-  console.log('Change: ', data.db, data.change);
-});
+var feed = require('global-couch-stream');
+var es = require('event-stream');
+
+es.pipeline(
+  feed({
+    url: 'http://localhost:5984',
+    follow: {
+      include_docs: true
+    }
+  }),
+  es.stringify(),
+  process.stdout
+);
 ```
 
 Contributing
